@@ -12,6 +12,10 @@ var morgan = require('morgan');
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
+var injectTapEventPlugin = require('react-tap-event-plugin');
 
 var app = express();
 
@@ -53,7 +57,7 @@ if (process.env.NODE_ENV === 'production') {
 // view engine setup
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

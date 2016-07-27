@@ -1,0 +1,20 @@
+doctype html
+html
+  | include ./partials/header.pug
+  body
+    | include ./partials/navbar.pug
+    ul#stacked-menu.nav.nav-pills.nav-stacked.left-menu
+      li
+        a(href='#', data-target='#item1', data-toggle='collapse', data-parent='#stacked-menu')
+          | Menu
+          span.caret.arrow
+        ul#item1.nav.nav-stacked.collapse.left-submenu
+          li
+            a(href='/teamnews') Team News
+          li
+            a(href='/fanzone') Fan Zone
+          li
+            a(href='/gamezone') Game Zone
+          li
+            a(href='/settings') Settings
+    |     include ./partials/footer.pug

@@ -1,0 +1,40 @@
+doctype html
+html
+  body
+    include ./partials/header.pug
+    include ./partials/navbar.pug
+    .jumbotron
+      .row
+        .col-sm-12
+          h1 NFL Sunday Twitter
+      .row
+        .col-sm-6
+          img.thumbnail(src='./img/search.png', alt='')
+        .col-sm-6
+          p
+            | Follow your favorite team like never before. See what your favorite players are tweeting about. Get in the action on game day and trash talk your face off.
+      .row
+        .col-sm-6
+          button.btn.btn-default(type='button') Signup
+        .col-sm-6
+          button.btn.btn-default(type='button') SignIn
+    section
+      .container
+        .row
+          .col-md-6
+            img.thumbnail(src='./img/search.png', alt='')
+          .col-md-6 Follow Your Team
+        .row
+          .col-md-6 Follow the action by Game
+          .col-md-6
+            img.thumbnail(src='./img/search.png', alt='')
+        .row
+          .col-md-6
+            img.thumbnail(src='./img/search.png', alt='')
+          .col-md-6 Get All the news!
+    section
+      .container
+        .row
+          .col-md-12
+            h3 Become a super fan
+            include ./partials/footer.pug
