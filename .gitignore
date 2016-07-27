@@ -1,2 +1,7 @@
 node_modules
 .env
+.gzip
+.DS_Store
+.lock
+.0
+.ns
