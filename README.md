@@ -1,9 +1,13 @@
-# Full stack Start Kit
+# VAPOR
+Boilerplate for Node apps
+
+#### DO NOT USE YET!
 
 #### Features
 
 * Node
 * React
+* Gulp
 * Webpack
   - enabled with Hot Reloader
   - configured for ES5 & ES2015
@@ -11,7 +15,8 @@
 * Passport Authentication
 * MongoDB and MongoURI
   - Ready for Heroku..just push and add `addon` Mongo Lab
-* EJS Templating Engine
+* Pug Templating Engine
+* Material UI
 * Bootstrap Framework
 * ESLinter following AirBNB Style guide, also allows for ES2015 linting.
 * Extra NPM Packages I use frequently
@@ -28,7 +33,7 @@
 
 1. Clone Repository
 2. cd into repo & `NPM Install`
-3. Enter the name of the db in `config/db` 
+3. Enter the name of the db in `config/db`
 4. `NPM Run Build` (make sure mongo is running)
 5. fire up `localhost:3333`
 6. Add awesome features and submit a pull request!
