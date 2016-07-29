@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: { 
+  entry: {
     main: [
     './client/Index']
   },
@@ -20,22 +20,23 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compressor: {
+    //     warnings: false
+    //   }
+    // })
   ],
 module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel',
                 exclude: /node_modules/,
                 include: path.join(__dirname, 'client'),
                 query: {
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react']
+                    presets:['stage-0', 'es2015', 'react'],
+                    plugins: ['transform-runtime'],
+                    cacheDirectory: '/tmp/'
                 }
             }
         ]

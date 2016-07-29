@@ -7,23 +7,40 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='#') NFL Sunday Twitter
-    // Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      a.navbar-brand(href='#') VAPOR
+    unless user
       ul.nav.navbar-nav.navbar-right
-        li.dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | Dropdown
-            span.caret
-          ul.dropdown-menu
-            li
-              a(href='/signup') Sign up
-            li
-              a(href='/login') Log in
-            li
-              a(href='/logout') logout
-            li.divider(role='separator')
-            li
-              a(href='/dashboard') dashboard
-    // /.navbar-collapse
-  // /.container-fluid
+        li
+          a(href='/login')
+            button.btn.btn(type='button') Login
+        li
+          a(href='/signup')
+            button.btn.btn-success(type='button') Signup
+    // Collect the nav links, forms, and other content for toggling
+    if user
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/dashboard') Dashboard
+          li
+            a(href='/signup') Campaigns
+          li
+            a(href='/signup') Tasks
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+              <img src='./img/profile-sm.jpg' height='25'/>
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='/dashboard') Dashboard
+              li
+                a(href='/teamnews') Team News
+              li
+                a(href='/fanzone') Fan Zone
+              li
+                a(href='/gamezone') Game Zone
+              li
+                a(href='/settings') Settings
+              li.divider(role='separator')
+              li
+                  a(href='/logout') Log Out

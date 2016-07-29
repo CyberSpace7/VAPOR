@@ -5,7 +5,7 @@ var User = require('../models/user');
 module.exports = function(app, passport) {
 
     app.get('/', function(req, res) {
-    	  res.render('index', { 
+    	  res.render('index', {
     	  	title: 'Express',
     	  	user: req.user });
     });
@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
 
     app.get('/login', function(req, res) {
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', {
+        res.render('login.pug', {
             message: req.flash('loginMessage')
         });
     });
@@ -32,37 +32,37 @@ module.exports = function(app, passport) {
 
     app.get('/signup', function(req, res) {
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', {
+        res.render('signup.pug', {
             message: req.flash('signupMessage')
         });
     });
 
 	app.get('/dashboard', isLoggedIn, function(req, res) {
-		res.render('dashboard.ejs', {
+		res.render('dashboard.pug', {
 			user : req.user // get the user out of session and pass to template
 		});
 	});
 
     app.get('/teamnews', isLoggedIn, function(req, res) {
-        res.render('teamnews.ejs', {
+        res.render('teamnews.pug', {
             user : req.user // get the user out of session and pass to template
         });
     });
 
     app.get('/gamezone', isLoggedIn, function(req, res) {
-        res.render('gamezone.ejs', {
+        res.render('gamezone.pug', {
             user : req.user // get the user out of session and pass to template
         });
     });
 
     app.get('/fanzone', isLoggedIn, function(req, res) {
-        res.render('fanzone.ejs', {
+        res.render('fanzone.pug', {
             user : req.user // get the user out of session and pass to template
         });
     });
 
     app.get('/settings', isLoggedIn, function(req, res) {
-        res.render('settings.ejs', {
+        res.render('settings.pug', {
             user : req.user // get the user out of session and pass to template
         });
     });
@@ -92,8 +92,9 @@ module.exports = function(app, passport) {
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
+        res.locals.isLoggedIn = req.session.isLoggedIn;
         return next();
 
     // if they aren't redirect them to the home page
@@ -103,7 +104,7 @@ function isLoggedIn(req, res, next) {
 // route middleware to make sure a user is admin
 function isAdmin(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated() && req.user.local.role === 'admin')
 
         return next();

@@ -14,9 +14,6 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
-var injectTapEventPlugin = require('react-tap-event-plugin');
-
 var app = express();
 
 
@@ -32,6 +29,7 @@ if (process.env.NODE_ENV === 'production') {
   var webpack = require('webpack');
   var webpackConfig = require('./webpack.config.dev');
   var compiler = webpack(webpackConfig);
+  console.log('Running in development mode');
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath
@@ -70,11 +68,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
 app.use(session({
-  secret: 'ilovescotchscotchyscotchscotch'
+  saveUninitialized: true, // saved new sessions
+  resave: false,
+  secret: 'hacktheplanethacktheplanethacktheplanet'
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(session({
+  saveUninitialized: true, // saved new sessions
+  resave: false,
+  secret: 'hacktheplanethacktheplanethacktheplanet',
   cookie: {
     maxAge: 60000
   }

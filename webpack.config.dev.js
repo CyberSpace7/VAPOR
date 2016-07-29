@@ -9,7 +9,7 @@ module.exports = {
   },
     output: {
     path: path.join(__dirname, 'static'),
-    filename: '[name].js',
+    filename: 'main.js',
     publicPath: '/static/',
     plugins: [ new webpack.optimize.CommonsChunkPlugin("init.js") ]
 
@@ -21,14 +21,10 @@ module.exports = {
 module: {
         loaders: [
             {
-                test: /\.js$/,
-                loader: 'babel',
+                test: /\.(js|jsx)$/,
+                loaders: ['react-hot', 'babel?cacheDirectory=tmp'],
                 exclude: /node_modules/,
                 include: path.join(__dirname, 'client'),
-                query: {
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react']
-                }
             }
         ]
     }
